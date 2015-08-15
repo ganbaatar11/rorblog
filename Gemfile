@@ -37,3 +37,4 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 gem "paperclip", "~>4.2"
+# hi
