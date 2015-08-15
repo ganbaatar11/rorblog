@@ -1,0 +1,15 @@
+<%= form_for([@post, @post.comments.build]) do |f| %>
+<div class="row">
+  <div class="col s12 center-align">
+    <div class="field">
+      <%= f.text_field :commenter, :placeholder => "Нэр" %>
+    </div>
+    <div class="field">
+      <%= f.text_area :body, :placeholder => "Сэтгэгдэл"  %>
+    </div>
+    <div class="actions">
+      <button type="submit">Илгээх</button>
+    </div>
+  </div>
+</div>
+<% end %>
