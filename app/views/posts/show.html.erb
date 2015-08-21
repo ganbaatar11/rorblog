@@ -1,26 +1,23 @@
 <div class="container">
 	<div class="row">
 		<div class="col s12 center-align">
-			<h5><%= @post.name %>: <%= @post.title %></h5>
-			<div class="row center-align">
-				<img class="materialboxed" src="<%= @post.photo.url(:medium) %>">
+			<div class="col s12 left-align"><h5><%= @post.name %>:&nbsp;</h5><h5><%= @post.title %></h5></div>
+			<div class="col s12 center-align post-image">
+			<img class="materialboxed" src="<%= @post.photo.url(:large) %>">
 			</div>
-			<div class="col s12 center-align">
-				<p><%= @post.content %></p>
-			</div> 
 			<div class="col s12">
-				<p>Tags: <%= join_tags(@post) %></p>
+				<p class="left-align"><%= @post.content %></p>
+				<hr>
+			</div>
+			<div class="col s12">
+				<p class="left-align">Tags: <%= join_tags(@post) %></p>
 			</div> 
-			<hr>
-			<div class="col s6">
-				<h5>Сэтгэгдэл үлдээх:</h5>
+			
+			<div class="col s12">
+				<h6 class="left-align">Сэтгэгдэл үлдээх:</h6 class="left-align">
 				<%= render "comments/form" %>
 			</div>
-			<div class="col s6">
-				<h5>Санал сэтгэгдэлүүд:</h5>
-				<p><%= render @post.comments %></p>
-			</div>
-
+			<%= render @post.comments %>
 		</div>
 	</div>
 </div>
