@@ -1,42 +1,43 @@
-<div class="container">
- <div class="row">
-   <div class="col s12 m6 l3">
-     <% @post.tags.build %>
-     <%= form_for @post, html: { multipart: true } do |post_form| %>
-     <% if @post.errors.any? %>
-     <div id="errorExplanation">
-      <p><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</p>
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+<div class="row">
+ <div class="col s12 m8 l4">
+   <% @post.tags.build %>
+   <%= form_for @post, html: { multipart: true } do |post_form| %>
+   <% if @post.errors.any? %>
+   <div id="errorExplanation">
+    <p><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</p>
+    <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div class="field">
+    <%= post_form.label :name %><br />
+    <%= post_form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= post_form.label :title %><br />
+    <%= post_form.text_field :title %>
+  </div>
+  <div class="field">
+    <%= post_form.label :photo %><br />
+    <%= post_form.file_field :photo %>
+  </div>
+  <div class="field">
+    <%= post_form.label :content %><br />
+    <%= post_form.text_area :content %>
+  </div>
+  <%= render :partial => 'tags/form',
+  :locals => {:form => post_form} %>
+</div>
+</div>
+<div class="row">
+ <div class="col s12 m8 l4">
+   <div class="actions">
+    <%= post_form.submit :class => "btn right" %>
+  </div>
     <% end %>
-    <div class="field">
-      <%= post_form.label :name %><br />
-      <%= post_form.text_field :name %>
-    </div>
-    <div class="field">
-      <%= post_form.label :title %><br />
-      <%= post_form.text_field :title %>
-    </div>
-    <div class="field">
-      <%= post_form.label :photo %><br />
-      <%= post_form.file_field :photo %>
-    </div>
-    <div class="field">
-      <%= post_form.label :content %><br />
-      <%= post_form.text_area :content %>
-    </div>
-    <h5>Тааг</h5>
-    <%= render :partial => 'tags/form',
-    :locals => {:form => post_form} %>
   </div>
 </div>
 
-<div class="actions">
-  <%= post_form.submit %>
-</div>
-<% end %>
-</div>

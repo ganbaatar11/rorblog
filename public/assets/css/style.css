@@ -1,7 +1,8 @@
 @media only screen and (min-width : 993px) {
   .container { width: 45%; }
 }
-
+h1 { font-size: 40px; }
+h2 { font-size: 15px; }
 h5 { display: inline-block; }
 .post-image img { width: 100% }
 .post-new {
@@ -10,7 +11,8 @@ h5 { display: inline-block; }
   left: 80px;
 }
 .comment-submit { float: left; }
-
+.row.md { margin-bottom: 0; }
+.post-home { padding-bottom:20px !important; }
 /*body {
   background-color: #fff;
   color: #333;

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_user!, except: [:index, :show, :search]
   # GET /posts
   # GET /posts.json
   def index
@@ -84,12 +84,7 @@ class PostsController < ApplicationController
 
   def search
     @posts = Post.where("content LIKE ? OR content like ?", "%#{params[:q]}%", "%#{params[:q]}%")
-
-    @allPosts = Post.all
-
-    for post in @allPosts
-      @comments = post.comments.where("body LIKE ?", "%#{params[:q]}%")
-    end
+    @comments = Comment.where("body LIKE ?", "%#{params[:q]}%")
   end
 
 end
